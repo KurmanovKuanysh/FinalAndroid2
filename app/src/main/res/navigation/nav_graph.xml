@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="kz.sd.shop.fragments.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_home_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="kz.sd.shop.fragments.ProfileFragment"
+        android:label="ProfileFragment" >
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="kz.sd.shop.fragments.ProductDetailsFragment"
+        android:label="ProductDetailsFragment" >
+        <argument
+            android:name="Product"
+            app:argType="kz.sd.shop.models.Product" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="kz.sd.shop.fragments.PaymentFragment"
+        android:label="PaymentFragment" >
+        <argument
+            android:name="total"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_paymentFragment_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/bonusPaymentFragment"
+        android:name="kz.sd.shop.fragments.BonusPaymentFragment"
+        android:label="BonusPaymentFragment" >
+        <argument
+            android:name="total"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_bonusPaymentFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+        <action
+            android:id="@+id/action_bonusPaymentFragment_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/choiceFragment"
+        android:name="kz.sd.shop.fragments.ChoiceFragment"
+        android:label="ChoiceFragment" >
+        <action
+            android:id="@+id/action_choiceFragment_to_bonusPaymentFragment"
+            app:destination="@id/bonusPaymentFragment" />
+        <action
+            android:id="@+id/action_choiceFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+        <argument
+            android:name="total"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsFragment2"
+        android:name="kz.sd.shop.fragments.ProductsFragment"
+        android:label="ProductsFragment" >
+        <action
+            android:id="@+id/action_productsFragment2_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+</navigation>
